@@ -1,0 +1,284 @@
+@import "tailwindcss";
+@import "highlight.js/styles/github.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --surface: #f9fafb;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+  --accent-warm: #ea580c;
+  --highlight-yellow: #fef08a;
+  --highlight-green: #bbf7d0;
+  --highlight-blue: #bfdbfe;
+  --highlight-pink: #fbcfe8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-urbanist);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans, "Urbanist", ui-sans-serif, system-ui, sans-serif);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Markdown Prose */
+.prose-custom {
+  line-height: 2;
+  font-size: 16.5px;
+  color: #374151;
+  font-family: var(--font-sans, "Urbanist", ui-sans-serif, system-ui, sans-serif);
+  letter-spacing: 0.01em;
+  word-spacing: 0.02em;
+}
+
+.prose-custom h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.75rem;
+}
+
+.prose-custom h2 {
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: #1f2937;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+.prose-custom h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-custom h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-custom p {
+  margin-bottom: 1.15rem;
+  color: #4b5563;
+  line-height: 2;
+}
+
+.prose-custom strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.prose-custom em {
+  color: #6b7280;
+}
+
+.prose-custom a {
+  color: #2563eb;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.prose-custom a:hover {
+  border-bottom-color: #2563eb;
+}
+
+.prose-custom hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 2rem 0;
+}
+
+.prose-custom ul,
+.prose-custom ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose-custom li {
+  margin-bottom: 0.45rem;
+  color: #4b5563;
+  line-height: 1.9;
+}
+
+.prose-custom li::marker {
+  color: #9ca3af;
+}
+
+.prose-custom blockquote {
+  border-left: 3px solid #2563eb;
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  background: #eff6ff;
+  border-radius: 0 6px 6px 0;
+}
+
+.prose-custom blockquote p {
+  color: #1e40af;
+  margin-bottom: 0;
+}
+
+/* Code blocks */
+.prose-custom pre {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.prose-custom pre code {
+  font-family: var(--font-mono, "Geist Mono", "JetBrains Mono", "Fira Code", ui-monospace, monospace);
+  background: none !important;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+  color: #334155;
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.prose-custom :not(pre) > code {
+  font-family: var(--font-mono, "Geist Mono", ui-monospace, monospace);
+  background: #f1f5f9;
+  color: #dc2626;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.87em;
+  border: 1px solid #e2e8f0;
+}
+
+/* Tables */
+.prose-custom table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 14px;
+}
+
+.prose-custom thead th {
+  background: #f9fafb;
+  color: #111827;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.prose-custom tbody td {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+  vertical-align: top;
+}
+
+.prose-custom tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.prose-custom tbody tr:hover {
+  background: #eff6ff;
+}
+
+/* Images */
+.prose-custom img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Highlights */
+mark[data-highlight] {
+  border-radius: 2px;
+  padding: 1px 0;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+mark[data-highlight]:hover {
+  opacity: 0.7;
+}
+
+.highlight-yellow { background-color: var(--highlight-yellow); }
+.highlight-green { background-color: var(--highlight-green); }
+.highlight-blue { background-color: var(--highlight-blue); }
+.highlight-pink { background-color: var(--highlight-pink); }
+
+@keyframes highlight-flash {
+  0%, 100% { outline: none; }
+  25%, 75% { outline: 3px solid #2563eb; outline-offset: 2px; border-radius: 3px; }
+}
+
+mark.flash-highlight {
+  animation: highlight-flash 1.2s ease-in-out;
+}
+
+/* Whiteboard overlay animations */
+.whiteboard-overlay-enter {
+  animation: wb-enter 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.whiteboard-overlay-exit {
+  animation: wb-exit 260ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes wb-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wb-exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
